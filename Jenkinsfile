@@ -1,8 +1,7 @@
 pipeline {
     agent any 
 
-    stages {
-       
+    stages {       
 
         stage('Build and Run') {
             steps {
@@ -11,10 +10,5 @@ pipeline {
             }
         }
     }
-
-    post {
-        always {
-            // Cleanup or post-process steps, if any
-        }
-    }
+    
 }
