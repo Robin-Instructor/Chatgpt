@@ -18,9 +18,4 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            // Cleanup or post-process steps, if any
-        }
-    }
 }
