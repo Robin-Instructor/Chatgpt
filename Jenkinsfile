@@ -1,21 +1,30 @@
 pipeline {
     agent any
 
+   
     stages {
+       
         stage('Build') {
             steps {
-                // Python dosyasını çalıştırmak için bir shell komutu kullanalım.
-                sh 'python hello_world.py'
+                // Java dosyasını derleyin.
+                sh 'javac HelloChatGPT.java'
+            }
+        }
+
+        stage('Run') {
+            steps {
+                // Derlenmiş Java sınıfını çalıştırın.
+                sh 'java HelloChatGPT'
             }
         }
     }
 
     post {
         success {
-            echo 'Uygulama calisti'
+            echo 'Uygulama başariyla çalisti!'
         }
         failure {
-            echo 'Uygulama basarisiz oldu!'
+            echo 'Uygulama başarisiz oldu!'
         }
     }
 }
